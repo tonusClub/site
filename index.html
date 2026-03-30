@@ -358,6 +358,50 @@
     color: #555;
     margin-bottom: 12px;
   }
+  .about-offer {
+    margin-top: 28px;
+    padding: 24px 26px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #fff8ee 0%, #fff 100%);
+    border: 1px solid rgba(245,160,0,.18);
+    box-shadow: 0 18px 36px rgba(245,160,0,.12);
+  }
+  .about-offer-kicker {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(245,160,0,.12);
+    color: var(--orange);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .about-offer-price {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .about-offer-price strong {
+    font-size: clamp(42px, 4vw, 56px);
+    font-weight: 900;
+    color: var(--orange);
+    letter-spacing: -.04em;
+  }
+  .about-offer-note {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+  }
   .about-img {
     border-radius: 20px;
     overflow: hidden;
@@ -530,7 +574,7 @@
     overflow: hidden;
     background:
       linear-gradient(180deg, rgba(16,24,16,.18) 0%, rgba(16,24,16,.48) 100%),
-      url('src/greenplaza.jpg') center 42%/108% no-repeat;
+      url('src/greenplaza.jpg') 62% 42%/108% no-repeat;
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
@@ -1350,6 +1394,15 @@
     }
     .about-text h2,
     .cta-section h2 { font-size: 28px; }
+    .about-offer {
+      padding: 20px 18px;
+      border-radius: 20px;
+    }
+    .about-offer-price {
+      font-size: 18px;
+      gap: 8px;
+    }
+    .about-offer-price strong { font-size: 40px; }
     .about-img img,
     .equipment-content img { height: 260px; }
 
@@ -1389,7 +1442,7 @@
       align-items: flex-end;
       border-radius: 24px;
       background-size: 150%;
-      background-position: center 34%;
+      background-position: 68% 34%;
     }
     .club-showcase-content {
       max-width: 100%;
@@ -1516,7 +1569,7 @@
       <span class="discount">-65%</span> НА ПЕРВУЮ<br>ТРЕНИРОВКУ
     </div>
     <div class="hero-price"><s>1800</s> 350 р.</div>
-    <div class="hero-gift">🎁 + 2 массажа в подарок</div>
+    <div class="hero-gift">🎁 2 подарка в день визита: лимфодренажный и антицеллюлитный массаж</div>
     <button class="hero-cta" onclick="openModal()">ЗАПИСАТЬСЯ</button>
     <div class="hero-bottom">
       <div class="hero-tag">
@@ -1541,9 +1594,13 @@
   <div class="about-wrap">
     <div class="about-text">
       <h2><span class="orange">ТОНУС-КЛУБ</span> — ЭТО</h2>
-      <p>Инновационный фитнес-клуб только для женщин с по-настоящему умными тренажёрами.</p>
-      <p>Никаких изнурительных тренировок — тренажёры всё сделают за вас!</p>
-      <p>Все тренировки проходят индивидуально с тренером, нагрузка подбирается в соответствии с вашими целями и физиологией организма.</p>
+      <p>«Тонус-клуб» — это фитнес без утомительных нагрузок и перегруза для организма.</p>
+      <p>У нас только индивидуальные тренировки и рекомендации по питанию, без групповых и силовых нагрузок.</p>
+      <div class="about-offer">
+        <div class="about-offer-kicker">Абонементы</div>
+        <div class="about-offer-price">от <strong>300 ₽</strong> в день</div>
+        <p class="about-offer-note">Подбираются лично на первом визите. Действуют скидки и специальные бонусы.</p>
+      </div>
     </div>
     <div class="about-img">
       <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80" alt="Тренировка в клубе">
@@ -1851,7 +1908,7 @@
   <div class="modal">
     <button class="modal-close" onclick="closeModal()">✕</button>
     <h2>Записаться на тренировку</h2>
-    <p>Первое занятие со скидкой 65% — всего 350 р. + фитнес-тестирование в подарок!</p>
+    <p>Первый визит — всего 350 ₽. В день посещения подарим лимфодренажный и антицеллюлитный массаж, а абонемент подберём лично — от 300 ₽ в день.</p>
     <div class="modal-form">
       <input type="text" placeholder="Ваше имя">
       <input type="tel" placeholder="+7 (000) 000-00-00">
