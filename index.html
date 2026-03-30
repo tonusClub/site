@@ -42,40 +42,10 @@
   .logo {
     display: flex;
     align-items: center;
-    gap: 0;
     text-decoration: none;
     flex-shrink: 0;
   }
-  .logo-badge {
-    background: var(--yellow);
-    border-radius: 8px 0 0 8px;
-    padding: 6px 12px 6px 14px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    font-size: 20px;
-    color: #111;
-    letter-spacing: -0.5px;
-  }
-  .logo-badge .o-circle {
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-    border: 3px solid var(--green);
-    border-radius: 50%;
-    position: relative;
-    top: 2px;
-    margin: 0 1px;
-  }
-  .logo-club {
-    background: var(--green);
-    border-radius: 0 8px 8px 0;
-    padding: 6px 14px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    font-size: 20px;
-    color: #fff;
-    letter-spacing: -0.5px;
-  }
+  .logo img { height: 40px; width: auto; display: block; }
 
   nav {
     display: flex;
@@ -710,8 +680,7 @@
   .footer-org { font-size: 12px; color: rgba(255,255,255,.6); text-align: right; }
 
   /* ─── LOGO FOOTER ─── */
-  .logo-footer .logo-badge { font-size: 17px; }
-  .logo-footer .logo-club { font-size: 17px; }
+  .logo-footer img { height: 34px; }
 
   /* ─── HERO PLACEHOLDER ─── */
   .hero-img-placeholder {
@@ -797,8 +766,7 @@
 <!-- HEADER -->
 <header>
   <a href="#" class="logo">
-    <span class="logo-badge">Т<span class="o-circle"></span>НУС</span>
-    <span class="logo-club">КЛУБ</span>
+    <img src="src/logo.webp" alt="Тонус-Клуб">
   </a>
   <nav>
     <a href="#">Главная</a>
@@ -810,8 +778,12 @@
     <a href="#contacts">Контакты</a>
   </nav>
   <div class="header-socials">
-    <a href="#" class="social-btn social-ok">ОК</a>
-    <a href="#" class="social-btn social-vk">ВК</a>
+    <a href="#" class="social-btn social-ok" title="Одноклассники">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.001 0C5.372 0 0 5.373 0 12s5.372 12 12.001 12C18.628 24 24 18.627 24 12S18.628 0 12.001 0zm.001 4.348c2.009 0 3.632 1.623 3.632 3.633 0 2.009-1.623 3.632-3.632 3.632-2.01 0-3.633-1.623-3.633-3.632 0-2.01 1.623-3.633 3.633-3.633zm4.78 10.21c-.578.577-1.42.887-2.474 1.043l2.363 2.295c.424.413.433 1.088.019 1.512-.413.424-1.087.433-1.511.019l-3.178-3.086-3.178 3.086c-.413.424-1.087.415-1.511-.009-.424-.413-.415-1.087.009-1.511l2.353-2.285c-1.063-.159-1.909-.469-2.49-1.053-.413-.413-.413-1.082 0-1.495.413-.414 1.082-.414 1.495 0 .855.847 2.418 1.105 4.322 1.105 1.904 0 3.467-.258 4.322-1.105.413-.414 1.082-.414 1.495 0 .413.413.413 1.082-.036 1.484z"/></svg>
+    </a>
+    <a href="#" class="social-btn social-vk" title="ВКонтакте">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.525-2.049-1.714-1.033-1.01-1.49-.861-1.72-.861-.34 0-.481.081-.481.599v1.566c0 .422-.135.677-1.231.677-1.816 0-3.832-1.102-5.25-3.155C5.37 11.246 4.66 8.65 4.66 8.042c0-.245.082-.474.596-.474h1.744c.445 0 .613.2.786.67.866 2.5 2.317 4.688 2.917 4.688.225 0 .328-.103.328-.667V9.96c-.067-1.2-.703-1.302-.703-1.727 0-.204.165-.41.431-.41h2.743c.374 0 .506.2.506.631v3.392c0 .374.163.506.267.506.225 0 .41-.132.82-.543 1.27-1.421 2.176-3.618 2.176-3.618.12-.245.327-.474.77-.474h1.744c.524 0 .638.27.524.633-.218.991-2.312 3.96-2.312 3.96-.183.3-.25.432 0 .77.183.254.78.78 1.177 1.255.734.847 1.296 1.558 1.448 2.051.14.474-.082.715-.543.715z"/></svg>
+    </a>
   </div>
   <button class="call-btn" onclick="openModal()">Позвонить нам</button>
 </header>
@@ -829,7 +801,7 @@
     <div class="hero-bottom">
       <div class="hero-tag">
         <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path stroke="#fff" stroke-width="2" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" stroke="#fff" stroke-width="2"/></svg>
-        2 клуба в Перми
+        Куйбышева ул. 95б
       </div>
       <div class="hero-tag">
         <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#fff" stroke-width="2"/><path stroke="#fff" stroke-width="2" d="M12 7v5l3 3"/></svg>
@@ -899,14 +871,10 @@
     </div>
   </div>
 
-  <h2 class="section-title">Наши <span>клубы</span></h2>
-  <div class="clubs-grid">
-    <div class="club-card green">
-      <h3>ПЕРМЬ<br>ул. Ленина 58</h3>
-      <button class="club-card-btn" onclick="openModal()">Записаться</button>
-    </div>
-    <div class="club-card orange">
-      <h3>ПЕРМЬ<br>ул. Мира 32/4</h3>
+  <h2 class="section-title">Наш <span>клуб</span></h2>
+  <div style="display:flex;justify-content:center;">
+    <div class="club-card green" style="min-width:240px;max-width:320px;">
+      <h3>ПЕРМЬ<br>Куйбышева ул. 95б</h3>
       <button class="club-card-btn" onclick="openModal()">Записаться</button>
     </div>
   </div>
@@ -1004,10 +972,6 @@
     <div class="cta-form">
       <input type="text" placeholder="Ваше имя">
       <input type="tel" placeholder="+7 (000) 000-00-00">
-      <select>
-        <option>Пермь, ул. Ленина 58</option>
-        <option>Пермь, ул. Мира 32/4</option>
-      </select>
       <button class="cta-form-btn" onclick="openModal()">Записаться</button>
     </div>
     <div class="cta-agree">
@@ -1078,14 +1042,10 @@
 <section id="contacts" style="padding:0;">
   <div class="map-wrap">
     <div class="map-list">
-      <h2>Клубы в Перми:</h2>
+      <h2>Клуб в Перми:</h2>
       <div class="map-club">
-        <div class="map-club-addr">г. Пермь, ул. Ленина 58</div>
+        <div class="map-club-addr">г. Пермь, Куйбышева ул. 95б</div>
         <a href="tel:+73422000001" class="map-club-phone">8 (342) 200-00-01</a>
-      </div>
-      <div class="map-club">
-        <div class="map-club-addr">г. Пермь, ул. Мира 32/4</div>
-        <a href="tel:+73422000002" class="map-club-phone">8 (342) 200-00-02</a>
       </div>
       <div class="map-schedule">График работы: ежедневно с 7:30 до 22:00</div>
     </div>
@@ -1106,8 +1066,7 @@
 <footer>
   <div class="footer-top">
     <a href="#" class="logo logo-footer">
-      <span class="logo-badge">Т<span class="o-circle"></span>НУС</span>
-      <span class="logo-club">КЛУБ</span>
+      <img src="src/logo.webp" alt="Тонус-Клуб">
     </a>
     <nav class="footer-nav">
       <a href="#">Главная</a>
@@ -1118,8 +1077,12 @@
       <a href="#equipment">Умные тренажёры</a>
     </nav>
     <div class="footer-socials">
-      <a href="#" class="social-btn social-ok">ОК</a>
-      <a href="#" class="social-btn social-vk">ВК</a>
+      <a href="#" class="social-btn social-ok" title="Одноклассники">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.001 0C5.372 0 0 5.373 0 12s5.372 12 12.001 12C18.628 24 24 18.627 24 12S18.628 0 12.001 0zm.001 4.348c2.009 0 3.632 1.623 3.632 3.633 0 2.009-1.623 3.632-3.632 3.632-2.01 0-3.633-1.623-3.633-3.632 0-2.01 1.623-3.633 3.633-3.633zm4.78 10.21c-.578.577-1.42.887-2.474 1.043l2.363 2.295c.424.413.433 1.088.019 1.512-.413.424-1.087.433-1.511.019l-3.178-3.086-3.178 3.086c-.413.424-1.087.415-1.511-.009-.424-.413-.415-1.087.009-1.511l2.353-2.285c-1.063-.159-1.909-.469-2.49-1.053-.413-.413-.413-1.082 0-1.495.413-.414 1.082-.414 1.495 0 .855.847 2.418 1.105 4.322 1.105 1.904 0 3.467-.258 4.322-1.105.413-.414 1.082-.414 1.495 0 .413.413.413 1.082-.036 1.484z"/></svg>
+      </a>
+      <a href="#" class="social-btn social-vk" title="ВКонтакте">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.525-2.049-1.714-1.033-1.01-1.49-.861-1.72-.861-.34 0-.481.081-.481.599v1.566c0 .422-.135.677-1.231.677-1.816 0-3.832-1.102-5.25-3.155C5.37 11.246 4.66 8.65 4.66 8.042c0-.245.082-.474.596-.474h1.744c.445 0 .613.2.786.67.866 2.5 2.317 4.688 2.917 4.688.225 0 .328-.103.328-.667V9.96c-.067-1.2-.703-1.302-.703-1.727 0-.204.165-.41.431-.41h2.743c.374 0 .506.2.506.631v3.392c0 .374.163.506.267.506.225 0 .41-.132.82-.543 1.27-1.421 2.176-3.618 2.176-3.618.12-.245.327-.474.77-.474h1.744c.524 0 .638.27.524.633-.218.991-2.312 3.96-2.312 3.96-.183.3-.25.432 0 .77.183.254.78.78 1.177 1.255.734.847 1.296 1.558 1.448 2.051.14.474-.082.715-.543.715z"/></svg>
+      </a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -1147,10 +1110,6 @@
     <div class="modal-form">
       <input type="text" placeholder="Ваше имя">
       <input type="tel" placeholder="+7 (000) 000-00-00">
-      <select>
-        <option>Пермь, ул. Ленина 58</option>
-        <option>Пермь, ул. Мира 32/4</option>
-      </select>
       <button class="modal-submit">Записаться</button>
     </div>
     <div class="modal-agree">Нажимая на кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a></div>
