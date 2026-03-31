@@ -9,6 +9,6 @@ assert.match(policy, /https:\/\/тонус-клуб\.рф/, 'Expected the privac
 assert.ok(!policy.includes('https://tonus64.ru'), 'The old source domain should be replaced in the policy page.');
 assert.match(policy, /Индивидуальный предприниматель Поципко Юлия Олеговна/, 'Expected the operator details from the provided policy text.');
 assert.match(policy, /ИНН 645310851281/, 'Expected the operator INN to be present in the policy text.');
-assert.match(policy, /<a href="index\.html"[^>]*>На главную<\/a>/, 'Expected a way back to the main page.');
+assert.match(policy, /<a href="\/"[^>]*>На главную<\/a>/, 'Expected a way back to the main page.');
 
 console.log('Privacy policy page checks passed.');

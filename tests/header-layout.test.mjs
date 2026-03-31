@@ -82,13 +82,23 @@ assert.match(html, /ОГРН:\s*312590302400015/, 'Expected the footer to show t
 assert.ok(!html.includes('ИП Иванова Ирина Ивановна'), 'The old placeholder sole proprietor name should be removed.');
 assert.match(
   html,
-  /<a href="consent\.html">Соглашение на обработку данных<\/a>/,
+  /<a href="\/consent">Соглашение на обработку данных<\/a>/,
   'Expected the footer consent link to open a standalone consent page.',
 );
 assert.match(
   html,
-  /<a href="privacy-policy\.html">Политика конфиденциальности<\/a>/,
+  /<a href="\/privacy-policy">Политика конфиденциальности<\/a>/,
   'Expected the footer privacy policy link to open a standalone policy page.',
+);
+assert.match(
+  html,
+  /<div class="modal-agree">[\s\S]*<a href="\/privacy-policy">политикой конфиденциальности<\/a>/,
+  'Expected the modal consent text to link to the standalone privacy policy page.',
+);
+assert.match(
+  html,
+  /<div class="cta-agree">[\s\S]*<a href="\/consent">обработку персональных данных<\/a>/,
+  'Expected the CTA form legal text to link to the standalone consent page.',
 );
 
 console.log('Header/mobile source checks passed.');
