@@ -277,19 +277,19 @@
     width: calc(100% - 72px);
     min-height: 0;
     margin: 24px auto 0;
-    gap: 22px;
+    gap: 32px;
     align-items: stretch;
   }
 
   .hero-left {
     background: var(--green);
     position: relative;
-    padding: 28px 40px 30px;
+    padding: 80px 40px 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 16px;
-    border-radius: 34px;
+    border-radius: 34px 0 0 34px;
     aspect-ratio: 1 / 1;
     min-height: auto;
     overflow: visible;
@@ -304,11 +304,10 @@
     font-size: 15px;
     font-weight: 700;
     box-shadow: 0 0 0 16px #fff;
-    margin-top: 0;
-    margin-bottom: -4px;
-    position: relative;
+    position: absolute;
+    top: 28px;
+    left: 40px;
     z-index: 2;
-    transform: translateY(-24px);
   }
   .hero-title {
     font-family: 'Montserrat', sans-serif;
@@ -375,7 +374,7 @@
     text-align: center;
     letter-spacing: .5px;
     transition: background .2s;
-    width: 100%;
+    width: calc(100% - 40px);
     max-width: 520px;
     margin-top: 6px;
   }
@@ -1458,7 +1457,7 @@
     .hero {
       grid-template-columns: minmax(0, 500px) minmax(0, 540px);
       width: calc(100% - 56px);
-      gap: 16px;
+      gap: 24px;
     }
     .hero-left {
       padding: 30px 32px 26px;
@@ -1981,10 +1980,10 @@
     <div class="about-img">
       <div class="about-collage">
         <div class="about-collage-card primary">
-          <img src="src/4.png" alt="Тренировка на умном тренажёре в Тонус-клубе">
+          <img src="src/6.jpg" alt="Тренировка на умном тренажёре в Тонус-клубе">
         </div>
         <div class="about-collage-card secondary">
-          <img src="src/5.png" alt="Занятие с гантелями в Тонус-клубе">
+          <img src="src/7.jpg" alt="Занятие с гантелями в Тонус-клубе">
         </div>
       </div>
     </div>
@@ -2109,7 +2108,7 @@
 
     <div class="step-card">
       <div class="step-img">
-        <img src="src/4.png" alt="Консультация">
+        <img src="src/consultant.png" alt="Консультация">
       </div>
       <div class="step-content">
         <h3>1. Консультация</h3>
@@ -2129,7 +2128,7 @@
 
     <div class="step-card">
       <div class="step-img">
-        <img src="src/5.png" alt="Тренировка">
+        <img src="src/9.jpg" alt="Тренировка">
       </div>
       <div class="step-content">
         <h3>3. Тренировка</h3>
@@ -2408,7 +2407,7 @@
     },
     {
       title: 'Лимфодренаж',
-      img: 'src/limfomassage.PNG',
+      img: 'src/8.jpg',
       p1: 'Аппаратный лимфодренажный массаж активирует лимфатическую систему и выводит лишнюю жидкость из организма.',
       p2: 'Снимает отёки, уменьшает объёмы, улучшает состояние кожи и самочувствие.',
       p3: 'Процедура проходит в комфортном лежачем положении — идеально для восстановления после тренировки.'
