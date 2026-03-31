@@ -792,10 +792,13 @@
   .equipment-bg { background: #fff; }
   .equipment-tabs {
     display: flex;
-    gap: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 32px;
+    row-gap: 10px;
     border-bottom: 1px solid #e0e0e0;
     margin-bottom: 40px;
-    overflow-x: auto;
+    overflow: hidden;
     padding-bottom: 0;
   }
   .eq-tab {
@@ -805,10 +808,11 @@
     color: #999;
     padding: 12px 0 14px;
     cursor: pointer;
-    white-space: nowrap;
+    white-space: normal;
+    text-align: center;
     border-bottom: 3px solid transparent;
     margin-bottom: -1px;
-    transition: color .2s;
+    transition: color .2s, border-color .2s;
     text-transform: uppercase;
     letter-spacing: .5px;
   }
@@ -1594,10 +1598,15 @@
     .step-content { padding: 22px 18px; }
     .step-img img { height: 180px; }
     .equipment-tabs {
-      gap: 20px;
+      column-gap: 16px;
+      row-gap: 8px;
       margin-bottom: 24px;
+      justify-content: flex-start;
     }
-    .eq-tab { font-size: 12px; }
+    .eq-tab {
+      font-size: 12px;
+      padding: 10px 0 12px;
+    }
 
     .cta-section {
       margin: 0 16px;
@@ -2023,15 +2032,15 @@
   <div class="footer-bottom">
     <div>
       <div class="footer-links">
-        <a href="#">Соглашение на обработку данных</a>
-        <a href="#">Политика конфиденциальности</a>
+        <a href="consent.html">Соглашение на обработку данных</a>
+        <a href="privacy-policy.html">Политика конфиденциальности</a>
       </div>
       <div class="footer-copy">© <span id="footerYear"></span> «Тонус-клуб»</div>
     </div>
     <div class="footer-org">
-      ИП Иванова Ирина Ивановна<br>
-      ИНН: 590000000000<br>
-      ОГРН: 31159000000000001
+      ИП Спешилов Сергей Юрьевич<br>
+      ИНН: 590301237773<br>
+      ОГРН: 312590302400015
     </div>
   </div>
 </footer>
@@ -2041,7 +2050,7 @@
   <div class="modal">
     <button class="modal-close" type="button" onclick="closeModal()">✕</button>
     <h2>Записаться на тренировку</h2>
-    <p>Первый визит — всего 350 ₽. В день посещения подарим лимфодренажный и антицеллюлитный массаж, а абонемент подберём лично — от 300 ₽ в день.</p>
+    <p>Первый визит — всего 350 ₽.</p>
     <form class="modal-form" id="modalForm" data-source="modal" data-lead-form>
       <input type="text" name="name" placeholder="Ваше имя" autocomplete="name" required>
       <input type="tel" name="phone" placeholder="+7 (000) 000-00-00" autocomplete="tel" inputmode="tel" data-phone-input required>

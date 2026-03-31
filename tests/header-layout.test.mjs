@@ -74,5 +74,21 @@ assert.match(html, /z=15\.4/, 'Expected the map zoom to be slightly more distant
 assert.match(html, /id="footerYear"/, 'Expected a dedicated footer year placeholder.');
 assert.match(html, /new Date\(\)\.getFullYear\(\)/, 'Expected the footer year to be generated dynamically from the current year.');
 assert.ok(!html.includes('© 2012 «Тонус-клуб»'), 'The footer should no longer hardcode the old year.');
+assert.match(html, /\.equipment-tabs\s*\{[\s\S]*flex-wrap:\s*wrap;/, 'Expected equipment tabs to wrap instead of forcing a horizontal scroller.');
+assert.ok(!html.includes('overflow-x: auto;'), 'The equipment tabs should no longer use horizontal auto-scrolling.');
+assert.match(html, /ИП Спешилов Сергей Юрьевич/, 'Expected the footer to show the updated sole proprietor name.');
+assert.match(html, /ИНН:\s*590301237773/, 'Expected the footer to show the updated INN.');
+assert.match(html, /ОГРН:\s*312590302400015/, 'Expected the footer to show the updated OGRN.');
+assert.ok(!html.includes('ИП Иванова Ирина Ивановна'), 'The old placeholder sole proprietor name should be removed.');
+assert.match(
+  html,
+  /<a href="consent\.html">Соглашение на обработку данных<\/a>/,
+  'Expected the footer consent link to open a standalone consent page.',
+);
+assert.match(
+  html,
+  /<a href="privacy-policy\.html">Политика конфиденциальности<\/a>/,
+  'Expected the footer privacy policy link to open a standalone policy page.',
+);
 
 console.log('Header/mobile source checks passed.');
