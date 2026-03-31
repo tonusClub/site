@@ -4,17 +4,14 @@ import { readFileSync } from 'node:fs';
 const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 
 assert.match(html, /src="src\/vk\.png"/, 'Expected the VK asset from src to be used.');
-assert.match(html, /src="src\/inst\.webp"/, 'Expected the Instagram asset from src to be used.');
 assert.match(
   html,
   /href="https:\/\/vk\.com\/tonusclubperm" class="social-btn social-vk"[^>]*target="_blank"[^>]*rel="noopener noreferrer"/,
   'Expected the VK social link to open as an external target.',
 );
-assert.match(
-  html,
-  /href="https:\/\/www\.instagram\.com\/tonus_club_perm\/" class="social-btn social-inst"[^>]*target="_blank"[^>]*rel="noopener noreferrer"/,
-  'Expected the Instagram social link to open as an external target.',
-);
+assert.ok(!html.includes('https://www.instagram.com/tonus_club_perm/'), 'Instagram links should be removed from the landing page.');
+assert.ok(!html.includes('src="src/inst.webp"'), 'The Instagram icon asset should no longer be rendered.');
+assert.ok(!html.includes('social-inst'), 'Instagram-specific social button styling should be removed.');
 assert.ok(!html.includes('social-ok'), 'Odnoklassniki markup should be removed.');
 assert.match(html, /@media\s*\(max-width:\s*960px\)/, 'Expected a mobile breakpoint for the layout.');
 assert.match(html, /class="mobile-menu-toggle"/, 'Expected a dedicated mobile menu toggle button.');
@@ -30,10 +27,55 @@ assert.ok(!html.includes(".social-btn {\n    width: 38px;\n    height: 38px;\n  
 assert.ok(!html.includes("background: #fffaf1;\n    border: 1px solid rgba(245,160,0,.24);"), 'The phone link should no longer use the old outlined pill style.');
 assert.match(html, /body\s*\{[^}]*font-family:\s*'Montserrat',\s*sans-serif;/, 'Expected Montserrat to be the base font for the page.');
 assert.ok(!html.includes("family=Roboto"), 'The old Roboto font import should be removed.');
-assert.match(html, /\.hero\s*\{[^}]*max-width:\s*[^;]+;/, 'Expected the hero layout to have a constrained max-width.');
+assert.match(html, /\.hero\s*\{[^}]*max-width:\s*948px;/, 'Expected the hero layout to have a compact max-width close to the square-plus-media composition.');
 assert.match(html, /\.hero\s*\{[^}]*margin:\s*[^;]*auto/, 'Expected the hero block to be centered instead of stretching edge-to-edge.');
+assert.match(html, /\.hero\s*\{[\s\S]*align-items:\s*stretch;/, 'Expected the hero columns to stretch to the same height.');
+assert.match(html, /\.hero\s*\{[\s\S]*gap:\s*22px;/, 'Expected the hero blocks to keep a visible white gap between the square card and the media card.');
+assert.match(html, /\.hero\s*\{[\s\S]*grid-template-columns:\s*minmax\(0,\s*530px\)\s+minmax\(0,\s*340px\);/, 'Expected the hero to use a square left block and a narrower vertical media block.');
+assert.match(html, /\.hero-left\s*\{[\s\S]*aspect-ratio:\s*1\s*\/\s*1;/, 'Expected the left hero block to keep a square proportion.');
+assert.match(html, /\.hero-right\s*\{[\s\S]*padding:\s*0;/, 'Expected the right hero block to lose the oversized white frame and behave like a clean media card.');
+assert.match(html, /\.hero-right\s*\{[\s\S]*height:\s*100%;/, 'Expected the right hero block to match the full height of the left hero block.');
+assert.match(html, /\.hero-right\s*\{[\s\S]*max-width:\s*340px;/, 'Expected the right hero block to stay narrow enough for a vertical video.');
+assert.match(html, /\.hero-label\s*\{[\s\S]*box-shadow:\s*0 0 0 16px #fff;/, 'Expected the white hero label to visually merge into the page background.');
+assert.match(html, /\.hero-label\s*\{[\s\S]*transform:\s*translateY\(-\d+px\);/, 'Expected the white hero label to rise above the green block edge.');
 assert.match(html, /\.hero-title\s*\{[\s\S]*font-weight:\s*800;/, 'Expected the main hero title to use a slightly lighter weight.');
 assert.match(html, /\.hero-title\s*\{[\s\S]*font-size:\s*clamp\(42px,\s*4\.4vw,\s*64px\);/, 'Expected the main hero title to be slightly smaller than before.');
+assert.match(html, /class="hero-video"/, 'Expected the hero media block to use a dedicated video element.');
+assert.match(html, /src="src\/hero-video\.mp4"/, 'Expected the hero video to use the optimized local MP4 asset.');
+assert.match(html, /autoplay muted loop playsinline/, 'Expected the hero video to autoplay silently in-place.');
+assert.match(html, /\.hero-video\s*\{[\s\S]*height:\s*100%;/, 'Expected the hero video to fill the height of its framed column.');
+assert.match(html, /\.hero-img-placeholder\s*\{[\s\S]*border-radius:\s*34px;/, 'Expected the hero media card to keep the same rounded geometry as the square green block.');
+assert.match(html, /class="about-collage"/, 'Expected the about section to use a collage wrapper instead of a single stock image.');
+assert.match(html, /src="src\/4\.(?:jpeg|png)"/, 'Expected the about collage to include the first local club photo.');
+assert.match(html, /src="src\/5\.(?:jpeg|HEIC|png)"/, 'Expected the about collage to include the second local club photo.');
+assert.ok(!html.includes('https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80" alt="Тренировка в клубе"'), 'The old stock image in the about section should be removed.');
+assert.match(html, /<img src="src\/tonusTable\.png" alt="Тонусные столы" id="eqImg">/, 'Expected the equipment section to use the local tonus table photo by default.');
+assert.match(html, /title:\s*'Тонусные столы',[\s\S]*img:\s*'src\/tonusTable\.png'/, 'Expected the tonus tables tab data to use the local tonus table photo.');
+assert.match(html, /title:\s*'Баротренажёр',[\s\S]*img:\s*'src\/bara\.WEBP'/, 'Expected the barotrainer tab data to use the local bara photo.');
+assert.match(html, /title:\s*'Роликовый тренажёр',[\s\S]*img:\s*'src\/rolllerTable\.jpg'[\s\S]*objectFit:\s*'contain'[\s\S]*objectPosition:\s*'center top'[\s\S]*imageScale:\s*'0\.92'/, 'Expected the roller trainer tab data to use the converted local photo with contain fitting and a gentler top-focused crop.');
+assert.match(html, /title:\s*'Лимфодренаж',[\s\S]*img:\s*'src\/limfomassage\.PNG'/, 'Expected the lymph drainage tab data to use the local lymph massage photo.');
+assert.match(html, /title:\s*'Система термопохудения',[\s\S]*img:\s*'src\/systemofthermo\.jpg'/, 'Expected the thermo slimming tab data to use the local thermo system photo.');
+assert.match(html, /\.equipment-content img\s*\{[\s\S]*object-position:\s*var\(--eq-object-position,\s*center center\);/, 'Expected equipment images to support per-tab object positioning.');
+assert.match(html, /\.equipment-content img\s*\{[\s\S]*object-fit:\s*var\(--eq-object-fit,\s*cover\);/, 'Expected equipment images to support per-tab object fitting.');
+assert.match(html, /\.equipment-content img\s*\{[\s\S]*transform:\s*scale\(var\(--eq-image-scale,\s*1\)\);/, 'Expected equipment images to support per-tab image scaling.');
+assert.match(html, /setProperty\('--eq-object-fit',\s*d\.objectFit\s*\|\|\s*'cover'\)/, 'Expected the equipment tab switcher to apply a per-tab object fit.');
+assert.match(html, /setProperty\('--eq-object-position',\s*d\.objectPosition\s*\|\|\s*'center center'\)/, 'Expected the equipment tab switcher to apply a per-tab object position.');
+assert.match(html, /setProperty\('--eq-image-scale',\s*d\.imageScale\s*\|\|\s*'1'\)/, 'Expected the equipment tab switcher to apply a per-tab image scale.');
+assert.match(html, /<h2 class="section-title">Преображения/, 'Expected a dedicated transformations section after the stats block.');
+assert.match(html, /src="src\/beforeAfter\/1\.jpeg"/, 'Expected the first before/after image to be used in the transformations slider.');
+assert.match(html, /src="src\/beforeAfter\/2\.jpeg"/, 'Expected the second before/after image to be used in the transformations slider.');
+assert.match(html, /src="src\/beforeAfter\/3\.jpeg"/, 'Expected the third before/after image to be used in the transformations slider.');
+assert.match(html, /src="src\/beforeAfter\/4\.PNG"/, 'Expected the fourth before/after image to be used in the transformations slider.');
+assert.match(html, /src="src\/beforeAfter\/5\.PNG"/, 'Expected the fifth before/after image to be used in the transformations slider.');
+assert.match(html, /class="transform-slider-track"/, 'Expected the transformations section to render a slider track.');
+assert.match(html, /class="transform-nav-btn transform-prev"/, 'Expected the transformations slider to include a previous button.');
+assert.match(html, /class="transform-nav-btn transform-next"/, 'Expected the transformations slider to include a next button.');
+assert.match(html, /\.transform-media img\s*\{[\s\S]*object-fit:\s*contain;/, 'Expected before/after photos to be shown fully without cropping.');
+assert.match(html, /const transformTrack = document\.querySelector\('\.transform-slider-track'\);/, 'Expected JavaScript to initialize the transformations slider.');
+assert.match(html, /setInterval\(function\(\)\s*\{\s*renderTransformSlider\(currentTransformSlide \+ 1\);\s*\},\s*7000\);/, 'Expected the transformations slider to auto-advance every 7 seconds.');
+assert.ok(!html.includes('История 01'), 'The transformations slider should no longer show story labels.');
+assert.ok(!html.includes('transform-card'), 'The transformations slider should no longer render the old text card column.');
+assert.match(html, /В клубе имеются дополнительные услуги\./, 'Expected the memberships block to mention that the club offers additional services.');
 assert.match(html, /class="stat-kicker"/, 'Expected the stats section to use richer card metadata.');
 assert.ok(!html.includes('clip-path: polygon(0 0, calc(100% - 56px) 0, 100% 56px, 100% 100%, 0 100%)'), 'The stats cards should no longer use the cut corner clip-path.');
 assert.match(html, /\.stat-item:hover\s*\{/, 'Expected a hover animation for the stats cards.');

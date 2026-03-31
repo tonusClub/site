@@ -69,11 +69,11 @@
     }
   ],
   "sameAs": [
-    "https://vk.com/tonusclubperm",
-    "https://www.instagram.com/tonus_club_perm/"
+    "https://vk.com/tonusclubperm"
   ]
 }
 </script>
+<!--YANDEX_METRIKA_HEAD-->
 <style>
   html {
     scroll-behavior: smooth;
@@ -194,11 +194,6 @@
     display: block;
   }
   .social-vk { background: #eef5ff; }
-  .social-inst { background: #fff; }
-  .social-inst img {
-    width: 18px;
-    height: 18px;
-  }
 
   .mobile-menu-toggle {
     display: none;
@@ -263,36 +258,44 @@
   /* ─── HERO ─── */
   .hero {
     display: grid;
-    grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
-    max-width: 1460px;
-    width: calc(100% - 48px);
-    min-height: 540px;
-    margin: 28px auto 0;
-    gap: 12px;
+    grid-template-columns: minmax(0, 530px) minmax(0, 340px);
+    justify-content: center;
+    max-width: 948px;
+    width: calc(100% - 72px);
+    min-height: 0;
+    margin: 24px auto 0;
+    gap: 22px;
     align-items: stretch;
   }
 
   .hero-left {
     background: var(--green);
-    padding: 52px 56px 44px;
+    position: relative;
+    padding: 28px 40px 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 18px;
+    gap: 16px;
     border-radius: 34px;
-    min-height: 100%;
+    aspect-ratio: 1 / 1;
+    min-height: auto;
+    overflow: visible;
   }
   .hero-label {
     color: var(--orange);
     background: #fff;
     padding: 10px 18px 12px;
-    border-radius: 0 0 18px 18px;
+    border-radius: 999px;
     width: fit-content;
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     font-weight: 700;
-    margin-top: -52px;
-    margin-bottom: 10px;
+    box-shadow: 0 0 0 16px #fff;
+    margin-top: 0;
+    margin-bottom: -4px;
+    position: relative;
+    z-index: 2;
+    transform: translateY(-24px);
   }
   .hero-title {
     font-family: 'Montserrat', sans-serif;
@@ -387,10 +390,16 @@
   .hero-right {
     position: relative;
     overflow: hidden;
+    align-self: stretch;
+    padding: 0;
     border-radius: 34px;
-    min-height: 540px;
+    min-height: 0;
+    max-width: 340px;
+    height: 100%;
+    display: flex;
   }
-  .hero-right img {
+  .hero-right img,
+  .hero-right video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -399,7 +408,15 @@
   .hero-img-placeholder {
     width: 100%;
     height: 100%;
-    min-height: 540px;
+    min-height: 100%;
+    border-radius: 34px;
+    overflow: hidden;
+  }
+  .hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   /* ─── SECTIONS ─── */
@@ -498,12 +515,41 @@
     margin: 0;
   }
   .about-img {
-    border-radius: 20px;
-    overflow: hidden;
+    position: relative;
   }
-  .about-img img {
+  .about-collage {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    align-items: start;
+    min-height: 440px;
+  }
+  .about-collage-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 26px;
+    box-shadow: 0 18px 34px rgba(22,54,22,.12);
+    background: #eef7ef;
+  }
+  .about-collage-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,.03) 0%, rgba(0,0,0,.08) 100%);
+    pointer-events: none;
+  }
+  .about-collage-card.primary {
+    margin-top: 12px;
+    transform: rotate(-2deg);
+  }
+  .about-collage-card.secondary {
+    margin-top: 64px;
+    transform: rotate(2deg);
+  }
+  .about-collage-card img {
     width: 100%;
-    height: 380px;
+    height: 100%;
+    min-height: 420px;
     object-fit: cover;
     display: block;
   }
@@ -623,6 +669,115 @@
     z-index: 1;
   }
   .stat-item.featured .stat-note { color: rgba(255,255,255,.88); }
+
+  /* ─── TRANSFORMATIONS ─── */
+  .transform-section {
+    margin-top: -2px;
+    margin-bottom: 8px;
+  }
+  .transform-frame {
+    position: relative;
+    background: linear-gradient(180deg, #ffffff 0%, #f7fbf7 100%);
+    border: 1px solid rgba(45,179,71,.12);
+    border-radius: 34px;
+    padding: 22px;
+    box-shadow: 0 18px 42px rgba(22,54,22,.07);
+    overflow: hidden;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  .transform-frame::before {
+    content: '';
+    position: absolute;
+    inset: auto auto 0 0;
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle, rgba(255,167,0,.18) 0%, rgba(255,167,0,0) 68%);
+    pointer-events: none;
+  }
+  .transform-top {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+  }
+  .transform-nav {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .transform-nav-btn {
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: 50%;
+    background: #fff;
+    color: #222;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(22,54,22,.08);
+    transition: transform .22s ease, box-shadow .22s ease, background .22s ease, color .22s ease;
+  }
+  .transform-nav-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(22,54,22,.12);
+    background: var(--green);
+    color: #fff;
+  }
+  .transform-slider {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 28px;
+  }
+  .transform-slider-track {
+    display: flex;
+    transition: transform .38s ease;
+    will-change: transform;
+  }
+  .transform-slide {
+    min-width: 100%;
+    display: block;
+  }
+  .transform-media {
+    position: relative;
+    height: clamp(380px, 44vw, 560px);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 18px 40px rgba(22,54,22,.12);
+    background: #eef7ef;
+  }
+  .transform-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #f7faf7;
+    display: block;
+  }
+  .transform-dots {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 24px;
+  }
+  .transform-dot {
+    width: 10px;
+    height: 10px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(45,179,71,.2);
+    cursor: pointer;
+    transition: transform .2s ease, background .2s ease;
+  }
+  .transform-dot.active {
+    background: var(--green);
+    transform: scale(1.2);
+  }
 
   /* ─── CLUBS ─── */
   .clubs-grid {
@@ -829,7 +984,10 @@
   .equipment-content img {
     width: 100%;
     height: 340px;
-    object-fit: cover;
+    object-fit: var(--eq-object-fit, cover);
+    object-position: var(--eq-object-position, center center);
+    transform: scale(var(--eq-image-scale, 1));
+    transform-origin: center;
     border-radius: 16px;
     display: block;
   }
@@ -1285,12 +1443,20 @@
     header { padding: 12px 24px; }
     header nav a { padding: 8px 8px; }
     .hero {
-      width: calc(100% - 32px);
-      min-height: 500px;
-      gap: 10px;
+      grid-template-columns: minmax(0, 500px) minmax(0, 540px);
+      width: calc(100% - 56px);
+      gap: 16px;
     }
     .hero-left {
-      padding: 44px 36px 38px 40px;
+      padding: 30px 32px 26px;
+    }
+    .hero-right {
+      padding: 14px;
+      border-radius: 32px;
+    }
+    .hero-img-placeholder {
+      min-height: 390px;
+      border-radius: 24px;
     }
     section { padding: 56px 40px; }
     .cta-section {
@@ -1376,6 +1542,7 @@
     .hero-left {
       padding: 36px 24px;
       border-radius: 28px;
+      aspect-ratio: auto;
       background:
         linear-gradient(180deg, rgba(45,179,71,.94) 0%, rgba(45,179,71,.97) 100%),
         url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80') center/cover;
@@ -1384,6 +1551,7 @@
     .hero-img-placeholder { min-height: 320px; }
     .hero-label {
       margin-top: 0;
+      box-shadow: none;
       border-radius: 999px;
       padding: 8px 14px;
       margin-bottom: 6px;
@@ -1402,6 +1570,16 @@
     .section-title {
       font-size: 32px;
       margin-bottom: 36px;
+    }
+    .transform-frame {
+      padding: 20px;
+      border-radius: 28px;
+    }
+    .transform-top {
+      margin-bottom: 14px;
+    }
+    .transform-media {
+      height: clamp(340px, 52vw, 460px);
     }
     .about-wrap,
     .equipment-content {
@@ -1524,8 +1702,43 @@
       font-size: 28px;
       margin-bottom: 28px;
     }
+    .transform-section {
+      margin-top: -4px;
+    }
+    .transform-frame {
+      padding: 18px;
+      border-radius: 24px;
+    }
+    .transform-top {
+      margin-bottom: 14px;
+    }
+    .transform-nav {
+      width: 100%;
+      justify-content: space-between;
+    }
+    .transform-nav-btn {
+      width: 46px;
+      height: 46px;
+      font-size: 18px;
+    }
+    .transform-media {
+      height: min(74vw, 420px);
+      border-radius: 22px;
+    }
+    .transform-dots {
+      margin-top: 18px;
+    }
     .about-text h2,
     .cta-section h2 { font-size: 28px; }
+    .about-collage {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .about-collage-card.primary,
+    .about-collage-card.secondary {
+      margin-top: 0;
+      transform: none;
+    }
     .about-offer {
       margin-top: 18px;
       padding-left: 16px;
@@ -1536,8 +1749,18 @@
     }
     .about-offer-price strong { font-size: 34px; }
     .about-offer-period { font-size: 20px; }
-    .about-img img,
     .equipment-content img { height: 260px; }
+    .about-collage {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      min-height: 0;
+    }
+    .about-collage-card {
+      border-radius: 20px;
+    }
+    .about-collage-card img {
+      min-height: 260px;
+    }
 
     .features-grid,
     .stats-grid,
@@ -1685,9 +1908,6 @@
         <a href="https://vk.com/tonusclubperm" class="social-btn social-vk" title="ВКонтакте" aria-label="ВКонтакте" target="_blank" rel="noopener noreferrer">
           <img src="src/vk.png" alt="ВКонтакте">
         </a>
-        <a href="https://www.instagram.com/tonus_club_perm/" class="social-btn social-inst" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-          <img src="src/inst.webp" alt="Instagram">
-        </a>
       </div>
       <a href="tel:+73422030390" class="phone-link" aria-label="Позвонить 203-03-90">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -1722,7 +1942,9 @@
   </div>
   <div class="hero-right">
     <div class="hero-img-placeholder">
-      <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80" alt="Тонус-Клуб Пермь" style="width:100%;height:100%;object-fit:cover;">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="src/hero-video-poster.jpg">
+        <source src="src/hero-video.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 </div>
@@ -1740,11 +1962,18 @@
           <div class="about-offer-price">от <strong>300 ₽</strong></div>
           <div class="about-offer-period">в день</div>
         </div>
-        <p class="about-offer-note">Подбираются лично на первом визите. Действуют скидки и специальные бонусы.</p>
+        <p class="about-offer-note">Подбираются лично на первом визите. Действуют скидки и специальные бонусы. В клубе имеются дополнительные услуги.</p>
       </div>
     </div>
     <div class="about-img">
-      <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80" alt="Тренировка в клубе">
+      <div class="about-collage">
+        <div class="about-collage-card primary">
+          <img src="src/4.png" alt="Тренировка на умном тренажёре в Тонус-клубе">
+        </div>
+        <div class="about-collage-card secondary">
+          <img src="src/5.png" alt="Занятие с гантелями в Тонус-клубе">
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1798,6 +2027,55 @@
   </div>
 </section>
 
+<!-- TRANSFORMATIONS -->
+<section class="transform-section">
+  <h2 class="section-title">Преображения <span>до и после</span></h2>
+  <div class="transform-frame">
+    <div class="transform-top">
+      <div class="transform-nav">
+        <button class="transform-nav-btn transform-prev" type="button" aria-label="Предыдущая история">&#8592;</button>
+        <button class="transform-nav-btn transform-next" type="button" aria-label="Следующая история">&#8594;</button>
+      </div>
+    </div>
+    <div class="transform-slider">
+      <div class="transform-slider-track">
+        <article class="transform-slide">
+          <div class="transform-media">
+            <img src="src/beforeAfter/1.jpeg" alt="Преображение участницы клуба: фото до и после">
+          </div>
+        </article>
+        <article class="transform-slide">
+          <div class="transform-media">
+            <img src="src/beforeAfter/2.jpeg" alt="История похудения участницы клуба: фото до и после">
+          </div>
+        </article>
+        <article class="transform-slide">
+          <div class="transform-media">
+            <img src="src/beforeAfter/3.jpeg" alt="Результат тренировок в Тонус-клубе: фото до и после">
+          </div>
+        </article>
+        <article class="transform-slide">
+          <div class="transform-media">
+            <img src="src/beforeAfter/4.PNG" alt="Ещё одна история участницы клуба: фото до и после">
+          </div>
+        </article>
+        <article class="transform-slide">
+          <div class="transform-media">
+            <img src="src/beforeAfter/5.PNG" alt="Преображение клиентки Тонус-клуба: фото до и после">
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="transform-dots" aria-label="Навигация по историям">
+      <button class="transform-dot active" type="button" aria-label="История 1"></button>
+      <button class="transform-dot" type="button" aria-label="История 2"></button>
+      <button class="transform-dot" type="button" aria-label="История 3"></button>
+      <button class="transform-dot" type="button" aria-label="История 4"></button>
+      <button class="transform-dot" type="button" aria-label="История 5"></button>
+    </div>
+  </div>
+</section>
+
 <!-- CLUB -->
 <section id="clubs">
   <h2 class="section-title">Наш <span>клуб</span></h2>
@@ -1818,7 +2096,7 @@
 
     <div class="step-card">
       <div class="step-img">
-        <img src="https://images.unsplash.com/photo-1609899537878-48855cff9a46?w=700&q=80" alt="Консультация">
+        <img src="src/4.png" alt="Консультация">
       </div>
       <div class="step-content">
         <h3>1. Консультация</h3>
@@ -1828,7 +2106,7 @@
 
     <div class="step-card reverse">
       <div class="step-img">
-        <img src="https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?w=700&q=80" alt="Фитнес-тестирование">
+        <img src="src/bara.WEBP" alt="Фитнес-тестирование">
       </div>
       <div class="step-content">
         <h3>2. Фитнес-тестирование</h3>
@@ -1838,7 +2116,7 @@
 
     <div class="step-card">
       <div class="step-img">
-        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&q=80" alt="Тренировка">
+        <img src="src/5.png" alt="Тренировка">
       </div>
       <div class="step-content">
         <h3>3. Тренировка</h3>
@@ -1848,7 +2126,7 @@
 
     <div class="step-card reverse">
       <div class="step-img">
-        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=700&q=80" alt="Отдых и СПА">
+        <img src="src/massage/1.PNG" alt="Отдых и СПА">
       </div>
       <div class="step-content">
         <h3>4. Отдых и СПА-процедуры</h3>
@@ -1858,7 +2136,7 @@
 
     <div class="step-card">
       <div class="step-img">
-        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=700&q=80" alt="Программа">
+        <img src="src/tonusTable.png" alt="Программа">
       </div>
       <div class="step-content">
         <h3>5. Выбор основной программы</h3>
@@ -1884,7 +2162,7 @@
   </div>
 
   <div class="equipment-content" id="eqContent">
-    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80" alt="Тонусные столы" id="eqImg">
+                        <img src="src/tonusTable.png" alt="Тонусные столы" id="eqImg">
     <div class="equipment-info">
       <h3 id="eqTitle">Тонусные столы</h3>
       <p id="eqText1">Комплекс умных тренажёров для проработки крупных мышц тела без нагрузки на суставы и позвоночник.</p>
@@ -2024,9 +2302,6 @@
       <a href="https://vk.com/tonusclubperm" class="social-btn social-vk" title="ВКонтакте" aria-label="ВКонтакте" target="_blank" rel="noopener noreferrer">
         <img src="src/vk.png" alt="ВКонтакте">
       </a>
-      <a href="https://www.instagram.com/tonus_club_perm/" class="social-btn social-inst" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-        <img src="src/inst.webp" alt="Instagram">
-      </a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -2064,6 +2339,7 @@
 <script>
   const header = document.querySelector('header');
   const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+  const thankYouPath = '/spasibo';
   document.getElementById('footerYear').textContent = new Date().getFullYear();
 
   function closeMenu() {
@@ -2088,42 +2364,45 @@
   const eqData = [
     {
       title: 'Тонусные столы',
-      img: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80',
+                    img: 'src/tonusTable.png',
       p1: 'Комплекс умных тренажёров для проработки крупных мышц тела без нагрузки на суставы и позвоночник.',
       p2: 'Формирует мышечный каркас тела, повышает упругость и эластичность мышц, способствует снижению лишнего веса.',
       p3: 'Эффект достигается за счёт последовательных, равномерно повторяющихся движений.'
     },
     {
       title: 'Баротренажёр',
-      img: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80',
+      img: 'src/bara.WEBP',
       p1: 'Уникальный тренажёр, сочетающий аэробную нагрузку с воздействием пониженного давления на нижнюю часть тела.',
       p2: 'Ускоряет жиросжигание в проблемных зонах: бёдра, ягодицы, живот. Улучшает кровообращение и лимфоток.',
       p3: 'Занятие проходит в комфортном режиме — вы просто ходите или бегаете, а тренажёр делает остальное.'
     },
     {
       title: 'Виброплатформа',
-      img: 'https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?w=800&q=80',
+      img: 'src/vibro.jpg',
       p1: 'Вибрационная платформа активирует до 97% мышечных волокон за счёт высокочастотных колебаний.',
       p2: 'Улучшает тонус мышц, ускоряет обмен веществ и помогает бороться с целлюлитом.',
       p3: 'Всего 10 минут на виброплатформе заменяют 60 минут обычных упражнений.'
     },
     {
       title: 'Роликовый тренажёр',
-      img: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80',
+      img: 'src/rolllerTable.jpg',
+      objectFit: 'contain',
+      objectPosition: 'center top',
+      imageScale: '0.92',
       p1: 'Роликовый массажный тренажёр воздействует на всё тело, разминает глубокие мышцы и подкожно-жировую клетчатку.',
       p2: 'Эффективен для борьбы с целлюлитом, отёками и застойными явлениями.',
       p3: 'Улучшает микроциркуляцию крови и способствует выводу токсинов.'
     },
     {
       title: 'Лимфодренаж',
-      img: 'https://images.unsplash.com/photo-1609899537878-48855cff9a46?w=800&q=80',
+      img: 'src/limfomassage.PNG',
       p1: 'Аппаратный лимфодренажный массаж активирует лимфатическую систему и выводит лишнюю жидкость из организма.',
       p2: 'Снимает отёки, уменьшает объёмы, улучшает состояние кожи и самочувствие.',
       p3: 'Процедура проходит в комфортном лежачем положении — идеально для восстановления после тренировки.'
     },
     {
       title: 'Система термопохудения',
-      img: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80',
+      img: 'src/systemofthermo.jpg',
       p1: 'Инфракрасная сауна нового поколения прогревает тело на клеточном уровне, запуская активное жиросжигание.',
       p2: 'Выводит токсины, улучшает состояние кожи, снимает мышечное напряжение и стресс.',
       p3: 'Комфортная температура позволяет находиться в сауне значительно дольше, чем в традиционной.'
@@ -2135,13 +2414,58 @@
       document.querySelectorAll('.eq-tab').forEach(t => t.classList.remove('active'));
       this.classList.add('active');
       const d = eqData[+this.dataset.idx];
-      document.getElementById('eqImg').src = d.img;
+      const eqImg = document.getElementById('eqImg');
+      eqImg.src = d.img;
+      eqImg.style.setProperty('--eq-object-fit', d.objectFit || 'cover');
+      eqImg.style.setProperty('--eq-object-position', d.objectPosition || 'center center');
+      eqImg.style.setProperty('--eq-image-scale', d.imageScale || '1');
       document.getElementById('eqTitle').textContent = d.title;
       document.getElementById('eqText1').textContent = d.p1;
       document.getElementById('eqText2').textContent = d.p2;
       document.getElementById('eqText3').textContent = d.p3;
     });
   });
+
+  const transformTrack = document.querySelector('.transform-slider-track');
+  const transformSlides = Array.from(document.querySelectorAll('.transform-slide'));
+  const transformPrev = document.querySelector('.transform-prev');
+  const transformNext = document.querySelector('.transform-next');
+  const transformDots = Array.from(document.querySelectorAll('.transform-dot'));
+  let currentTransformSlide = 0;
+
+  function renderTransformSlider(index) {
+    if (!transformTrack || !transformSlides.length) {
+      return;
+    }
+
+    currentTransformSlide = (index + transformSlides.length) % transformSlides.length;
+    transformTrack.style.transform = `translateX(-${currentTransformSlide * 100}%)`;
+    transformDots.forEach((dot, dotIndex) => {
+      dot.classList.toggle('active', dotIndex === currentTransformSlide);
+    });
+  }
+
+  if (transformTrack && transformPrev && transformNext) {
+    transformPrev.addEventListener('click', function() {
+      renderTransformSlider(currentTransformSlide - 1);
+    });
+
+    transformNext.addEventListener('click', function() {
+      renderTransformSlider(currentTransformSlide + 1);
+    });
+
+    transformDots.forEach((dot, index) => {
+      dot.addEventListener('click', function() {
+        renderTransformSlider(index);
+      });
+    });
+
+    renderTransformSlider(0);
+
+    setInterval(function() {
+      renderTransformSlider(currentTransformSlide + 1);
+    }, 7000);
+  }
 
   // Modal
   function openModal() {
@@ -2265,11 +2589,8 @@
       }
 
       form.reset();
-      setFormStatus(form, 'Заявка отправлена. Мы скоро свяжемся с вами.', 'success');
-
-      if (form.id === 'modalForm') {
-        window.setTimeout(closeModal, 1200);
-      }
+      window.location.assign(thankYouPath);
+      return;
     } catch (error) {
       setFormStatus(form, error.message || 'Не удалось отправить заявку.', 'error');
     } finally {

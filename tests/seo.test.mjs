@@ -57,10 +57,7 @@ assert.equal(structuredData.address.addressLocality, 'Пермь');
 assert.equal(structuredData.address.addressCountry, 'RU');
 assert.equal(structuredData.geo.latitude, 56.247158);
 assert.equal(structuredData.geo.longitude, 57.99081);
-assert.deepEqual(structuredData.sameAs, [
-  'https://vk.com/tonusclubperm',
-  'https://www.instagram.com/tonus_club_perm/',
-]);
+assert.deepEqual(structuredData.sameAs, ['https://vk.com/tonusclubperm']);
 
 const robotsUrl = new URL('../robots.txt', import.meta.url);
 assert.ok(existsSync(robotsUrl), 'Expected a robots.txt file at the project root.');
