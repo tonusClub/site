@@ -5,6 +5,16 @@ const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 
 assert.match(html, /src="src\/vk\.png"/, 'Expected the VK asset from src to be used.');
 assert.match(html, /src="src\/inst\.webp"/, 'Expected the Instagram asset from src to be used.');
+assert.match(
+  html,
+  /href="https:\/\/vk\.com\/tonusclubperm" class="social-btn social-vk"[^>]*target="_blank"[^>]*rel="noopener noreferrer"/,
+  'Expected the VK social link to open as an external target.',
+);
+assert.match(
+  html,
+  /href="https:\/\/www\.instagram\.com\/tonus_club_perm\/" class="social-btn social-inst"[^>]*target="_blank"[^>]*rel="noopener noreferrer"/,
+  'Expected the Instagram social link to open as an external target.',
+);
 assert.ok(!html.includes('social-ok'), 'Odnoklassniki markup should be removed.');
 assert.match(html, /@media\s*\(max-width:\s*960px\)/, 'Expected a mobile breakpoint for the layout.');
 assert.match(html, /class="mobile-menu-toggle"/, 'Expected a dedicated mobile menu toggle button.');

@@ -4,9 +4,76 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Тонус-Клуб Пермь — Фитнес-клуб для женщин</title>
+<meta name="description" content="Женский фитнес-клуб в Перми: умные тренажёры, индивидуальные тренировки, лимфодренаж, массаж и первая тренировка со скидкой 65% в Тонус-Клуб на Куйбышева, 95Б.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#2db347">
+<link rel="canonical" href="https://тонус-клуб.рф/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Тонус-Клуб Пермь">
+<meta property="og:title" content="Тонус-Клуб Пермь — Фитнес-клуб для женщин">
+<meta property="og:description" content="Индивидуальные тренировки, умные тренажёры, массаж и комфортный женский фитнес-клуб в центре Перми.">
+<meta property="og:url" content="https://тонус-клуб.рф/">
+<meta property="og:image" content="https://тонус-клуб.рф/src/greenplaza.jpg">
+<meta property="og:image:alt" content="Тонус-Клуб Пермь в бизнес-центре Green Plaza">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Тонус-Клуб Пермь — Фитнес-клуб для женщин">
+<meta name="twitter:description" content="Женский фитнес-клуб в Перми с индивидуальными тренировками и первой тренировкой со скидкой 65%.">
+<meta name="twitter:image" content="https://тонус-клуб.рф/src/greenplaza.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="icon" type="image/x-icon" href="src/logosmall.webp" />
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HealthClub",
+  "name": "Тонус-Клуб Пермь",
+  "url": "https://тонус-клуб.рф/",
+  "image": "https://тонус-клуб.рф/src/greenplaza.jpg",
+  "telephone": "+7-342-203-03-90",
+  "priceRange": "\u20bd\u20bd",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ул. Куйбышева, 95Б, БЦ Green Plaza, 5 этаж",
+    "addressLocality": "Пермь",
+    "addressRegion": "Пермский край",
+    "postalCode": "614039",
+    "addressCountry": "RU"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 56.247158,
+    "longitude": 57.99081
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "07:30",
+      "closes": "22:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ],
+  "sameAs": [
+    "https://vk.com/tonusclubperm",
+    "https://www.instagram.com/tonus_club_perm/"
+  ]
+}
+</script>
 <style>
   html {
     scroll-behavior: smooth;
@@ -255,16 +322,28 @@
   }
   .hero-price s { opacity: .6; font-weight: 400; margin-right: 8px; }
   .hero-gift {
+    position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    background: #fff;
-    border-radius: 30px;
-    padding: 10px 20px;
-    color: #444;
-    font-weight: 700;
-    font-size: 15px;
+    background: linear-gradient(180deg, #fff7ea 0%, #fff2dd 100%);
+    border: 1px solid rgba(255,255,255,.28);
+    border-radius: 26px;
+    padding: 12px 78px 12px 20px;
+    color: #3f3f3f;
+    font-weight: 800;
+    font-size: 17px;
+    line-height: 1.15;
     width: fit-content;
+    box-shadow: 0 10px 24px rgba(115, 74, 4, .14);
+  }
+  .hero-gift-icon {
+    position: absolute;
+    right: -14px;
+    top: -16px;
+    font-size: 58px;
+    line-height: 1;
+    transform: rotate(14deg);
+    filter: drop-shadow(0 10px 14px rgba(0,0,0,.16));
   }
 
   .hero-cta {
@@ -359,42 +438,58 @@
     margin-bottom: 12px;
   }
   .about-offer {
-    margin-top: 28px;
-    padding: 24px 26px;
-    border-radius: 24px;
-    background: linear-gradient(135deg, #fff8ee 0%, #fff 100%);
-    border: 1px solid rgba(245,160,0,.18);
-    box-shadow: 0 18px 36px rgba(245,160,0,.12);
+    position: relative;
+    margin-top: 22px;
+    padding-left: 22px;
+    max-width: 620px;
+  }
+  .about-offer::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    bottom: 6px;
+    width: 4px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, var(--orange) 0%, #ffd46e 100%);
   }
   .about-offer-kicker {
     display: inline-flex;
     align-items: center;
-    padding: 8px 14px;
-    border-radius: 999px;
-    background: rgba(245,160,0,.12);
     color: var(--orange);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 800;
-    letter-spacing: .04em;
+    letter-spacing: .12em;
     text-transform: uppercase;
-    margin-bottom: 14px;
+    margin-bottom: 8px;
+  }
+  .about-offer-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
   }
   .about-offer-price {
     display: flex;
     align-items: baseline;
-    gap: 10px;
-    flex-wrap: wrap;
+    gap: 8px;
     font-size: 22px;
     font-weight: 700;
     color: #1a1a1a;
-    line-height: 1.15;
-    margin-bottom: 10px;
+    line-height: 1;
   }
   .about-offer-price strong {
-    font-size: clamp(42px, 4vw, 56px);
+    font-size: clamp(38px, 3.6vw, 50px);
     font-weight: 900;
     color: var(--orange);
     letter-spacing: -.04em;
+  }
+  .about-offer-period {
+    font-size: clamp(20px, 2.2vw, 30px);
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1.05;
   }
   .about-offer-note {
     font-size: 15px;
@@ -574,7 +669,7 @@
     overflow: hidden;
     background:
       linear-gradient(180deg, rgba(16,24,16,.18) 0%, rgba(16,24,16,.48) 100%),
-      url('src/greenplaza.jpg') 62% 42%/108% no-repeat;
+      url('src/greenplaza.jpg') -2% 15%/108% no-repeat;
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
@@ -599,12 +694,12 @@
   .club-showcase-content {
     position: relative;
     z-index: 1;
-    max-width: 720px;
+    max-width: 620px;
     background: rgba(255,255,255,.14);
     border: 1px solid rgba(255,255,255,.22);
     backdrop-filter: blur(10px);
     border-radius: 28px;
-    padding: 22px 24px;
+    padding: 20px 22px;
     color: #fff;
   }
   .club-showcase-kicker {
@@ -635,7 +730,7 @@
     font-size: 16px;
     line-height: 1.55;
     color: rgba(255,255,255,.9);
-    max-width: 560px;
+    max-width: 500px;
     margin-bottom: 18px;
   }
   .club-showcase-cta {
@@ -814,6 +909,19 @@
     transition: background .2s;
   }
   .cta-form-btn:hover { background: #ffd700; }
+  .form-status {
+    display: none;
+    width: 100%;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+  .form-status.is-visible { display: block; }
+  .cta-section .form-status {
+    color: rgba(255,255,255,.86);
+  }
+  .cta-section .form-status.is-error {
+    color: #fff0f0;
+  }
   .cta-agree {
     color: rgba(255,255,255,.75);
     font-size: 12px;
@@ -1156,6 +1264,16 @@
     transition: background .2s;
   }
   .modal-submit:hover { background: #e08f00; }
+  .modal .form-status {
+    margin-top: 4px;
+    color: #777;
+  }
+  .modal .form-status.is-error {
+    color: #d14545;
+  }
+  .modal .form-status.is-success {
+    color: var(--green);
+  }
   .modal-agree { font-size: 12px; color: #999; margin-top: 4px; }
   .modal-agree a { color: var(--green); }
 
@@ -1378,6 +1496,16 @@
     .hero-left { padding: 28px 18px 30px; }
     .hero-title { font-size: 30px; }
     .hero-price { font-size: 17px; }
+    .hero-gift {
+      font-size: 15px;
+      padding: 11px 62px 11px 16px;
+      border-radius: 22px;
+    }
+    .hero-gift-icon {
+      right: -10px;
+      top: -10px;
+      font-size: 46px;
+    }
     .hero-cta {
       padding: 14px 18px;
       font-size: 16px;
@@ -1395,14 +1523,15 @@
     .about-text h2,
     .cta-section h2 { font-size: 28px; }
     .about-offer {
-      padding: 20px 18px;
-      border-radius: 20px;
+      margin-top: 18px;
+      padding-left: 16px;
     }
     .about-offer-price {
       font-size: 18px;
-      gap: 8px;
+      gap: 6px;
     }
-    .about-offer-price strong { font-size: 40px; }
+    .about-offer-price strong { font-size: 34px; }
+    .about-offer-period { font-size: 20px; }
     .about-img img,
     .equipment-content img { height: 260px; }
 
@@ -1544,10 +1673,10 @@
     </nav>
     <div class="header-actions">
       <div class="header-socials">
-        <a href="#" class="social-btn social-vk" title="ВКонтакте" aria-label="ВКонтакте">
+        <a href="https://vk.com/tonusclubperm" class="social-btn social-vk" title="ВКонтакте" aria-label="ВКонтакте" target="_blank" rel="noopener noreferrer">
           <img src="src/vk.png" alt="ВКонтакте">
         </a>
-        <a href="#" class="social-btn social-inst" title="Instagram" aria-label="Instagram">
+        <a href="https://www.instagram.com/tonus_club_perm/" class="social-btn social-inst" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
           <img src="src/inst.webp" alt="Instagram">
         </a>
       </div>
@@ -1565,11 +1694,11 @@
 <div class="hero">
   <div class="hero-left">
     <div class="hero-label">Фитнес-клуб для женщин в Перми</div>
-    <div class="hero-title">
+    <h1 class="hero-title">
       <span class="discount">-65%</span> НА ПЕРВУЮ<br>ТРЕНИРОВКУ
-    </div>
+    </h1>
     <div class="hero-price"><s>1800</s> 350 р.</div>
-    <div class="hero-gift">🎁 2 подарка в день визита: лимфодренажный и антицеллюлитный массаж</div>
+    <div class="hero-gift">+ 2 массажа в подарок<span class="hero-gift-icon" aria-hidden="true">🎁</span></div>
     <button class="hero-cta" onclick="openModal()">ЗАПИСАТЬСЯ</button>
     <div class="hero-bottom">
       <div class="hero-tag">
@@ -1598,7 +1727,10 @@
       <p>У нас только индивидуальные тренировки и рекомендации по питанию, без групповых и силовых нагрузок.</p>
       <div class="about-offer">
         <div class="about-offer-kicker">Абонементы</div>
-        <div class="about-offer-price">от <strong>300 ₽</strong> в день</div>
+        <div class="about-offer-head">
+          <div class="about-offer-price">от <strong>300 ₽</strong></div>
+          <div class="about-offer-period">в день</div>
+        </div>
         <p class="about-offer-note">Подбираются лично на первом визите. Действуют скидки и специальные бонусы.</p>
       </div>
     </div>
@@ -1759,11 +1891,12 @@
   <div class="cta-section">
     <h2>-65% НА ПЕРВУЮ ТРЕНИРОВКУ<br>+фитнес-тестирование в подарок</h2>
     <p>Запишитесь на пробное занятие и начните путь к похудению вместе с «ТОНУС-КЛУБ»</p>
-    <div class="cta-form">
-      <input type="text" placeholder="Ваше имя">
-      <input type="tel" placeholder="+7 (000) 000-00-00">
-      <button class="cta-form-btn" onclick="openModal()">Записаться</button>
-    </div>
+    <form class="cta-form" id="ctaForm" data-source="cta" data-lead-form>
+      <input type="text" name="name" placeholder="Ваше имя" autocomplete="name" required>
+      <input type="tel" name="phone" placeholder="+7 (000) 000-00-00" autocomplete="tel" inputmode="tel" data-phone-input required>
+      <button class="cta-form-btn" type="submit">Записаться</button>
+      <div class="form-status" aria-live="polite"></div>
+    </form>
     <div class="cta-agree">
       Нажимая на кнопку вы даёте согласие на <a href="#">обработку персональных данных</a>
     </div>
@@ -1879,10 +2012,10 @@
       <a href="#equipment">Умные тренажёры</a>
     </nav>
     <div class="footer-socials">
-      <a href="https://vk.com/tonusclubperm" class="social-btn social-vk" title="ВКонтакте" aria-label="ВКонтакте">
+      <a href="https://vk.com/tonusclubperm" class="social-btn social-vk" title="ВКонтакте" aria-label="ВКонтакте" target="_blank" rel="noopener noreferrer">
         <img src="src/vk.png" alt="ВКонтакте">
       </a>
-      <a href="https://www.instagram.com/tonus_club_perm/" class="social-btn social-inst" title="Instagram" aria-label="Instagram">
+      <a href="https://www.instagram.com/tonus_club_perm/" class="social-btn social-inst" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
         <img src="src/inst.webp" alt="Instagram">
       </a>
     </div>
@@ -1906,14 +2039,15 @@
 <!-- MODAL -->
 <div class="modal-overlay" id="modal">
   <div class="modal">
-    <button class="modal-close" onclick="closeModal()">✕</button>
+    <button class="modal-close" type="button" onclick="closeModal()">✕</button>
     <h2>Записаться на тренировку</h2>
     <p>Первый визит — всего 350 ₽. В день посещения подарим лимфодренажный и антицеллюлитный массаж, а абонемент подберём лично — от 300 ₽ в день.</p>
-    <div class="modal-form">
-      <input type="text" placeholder="Ваше имя">
-      <input type="tel" placeholder="+7 (000) 000-00-00">
-      <button class="modal-submit">Записаться</button>
-    </div>
+    <form class="modal-form" id="modalForm" data-source="modal" data-lead-form>
+      <input type="text" name="name" placeholder="Ваше имя" autocomplete="name" required>
+      <input type="tel" name="phone" placeholder="+7 (000) 000-00-00" autocomplete="tel" inputmode="tel" data-phone-input required>
+      <button class="modal-submit" type="submit">Записаться</button>
+      <div class="form-status" aria-live="polite"></div>
+    </form>
     <div class="modal-agree">Нажимая на кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a></div>
   </div>
 </div>
@@ -2012,12 +2146,132 @@
     if (e.target === this) closeModal();
   });
 
-  // Submit
-  document.querySelectorAll('.modal-submit, .cta-form-btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
+  function setFormStatus(form, message, tone) {
+    const status = form.querySelector('.form-status');
+    status.textContent = message;
+    status.classList.add('is-visible');
+    status.classList.toggle('is-error', tone === 'error');
+    status.classList.toggle('is-success', tone === 'success');
+  }
+
+  function clearFormStatus(form) {
+    const status = form.querySelector('.form-status');
+    status.textContent = '';
+    status.classList.remove('is-visible', 'is-error', 'is-success');
+  }
+
+  function formatPhoneInput(value) {
+    const digits = String(value || '').replace(/\D/g, '');
+    let localDigits = '';
+
+    if (!digits) {
+      return '';
+    }
+
+    if (digits[0] === '8' || digits[0] === '7') {
+      localDigits = digits.slice(1, 11);
+    } else {
+      localDigits = digits.slice(0, 10);
+    }
+
+    let formatted = '+7';
+    if (!localDigits.length) {
+      return formatted;
+    }
+
+    formatted += ` (${localDigits.slice(0, 3)}`;
+    if (localDigits.length >= 3) {
+      formatted += ')';
+    }
+    if (localDigits.length > 3) {
+      formatted += ` ${localDigits.slice(3, 6)}`;
+    }
+    if (localDigits.length > 6) {
+      formatted += `-${localDigits.slice(6, 8)}`;
+    }
+    if (localDigits.length > 8) {
+      formatted += `-${localDigits.slice(8, 10)}`;
+    }
+
+    return formatted;
+  }
+
+  function attachPhoneMask(input) {
+    input.addEventListener('focus', function() {
+      if (!input.value.trim()) {
+        input.value = '+7';
+      }
+    });
+
+    input.addEventListener('input', function() {
+      input.value = formatPhoneInput(input.value);
+    });
+
+    input.addEventListener('blur', function() {
+      if (input.value === '+7') {
+        input.value = '';
+      }
+    });
+  }
+
+  document.querySelectorAll('[data-phone-input]').forEach(attachPhoneMask);
+
+  async function submitLeadForm(form) {
+    clearFormStatus(form);
+
+    const submitButton = form.querySelector('button[type="submit"]');
+    const name = form.elements.name.value.trim();
+    const phone = form.elements.phone.value.trim();
+
+    if (!name) {
+      setFormStatus(form, 'Укажите ваше имя.', 'error');
+      form.elements.name.focus();
+      return;
+    }
+
+    if (!phone) {
+      setFormStatus(form, 'Укажите телефон для связи.', 'error');
+      form.elements.phone.focus();
+      return;
+    }
+
+    submitButton.disabled = true;
+
+    try {
+      const response = await fetch('/api/lead', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          phone,
+          source: form.dataset.source || 'unknown',
+        }),
+      });
+
+      const payload = await response.json();
+      if (!response.ok || !payload.ok) {
+        throw new Error(payload.error || 'Не удалось отправить заявку.');
+      }
+
+      form.reset();
+      setFormStatus(form, 'Заявка отправлена. Мы скоро свяжемся с вами.', 'success');
+
+      if (form.id === 'modalForm') {
+        window.setTimeout(closeModal, 1200);
+      }
+    } catch (error) {
+      setFormStatus(form, error.message || 'Не удалось отправить заявку.', 'error');
+    } finally {
+      submitButton.disabled = false;
+    }
+  }
+
+  document.querySelectorAll('[data-lead-form]').forEach(form => {
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
-      closeModal();
-      alert('Спасибо! Мы свяжемся с вами в ближайшее время 😊');
+      submitLeadForm(form);
     });
   });
 </script>
