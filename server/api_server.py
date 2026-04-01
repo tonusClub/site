@@ -14,7 +14,7 @@ from datetime import datetime, timedelta
 HOST = os.getenv("HOST", "127.0.0.1")
 PORT = int(os.getenv("PORT", "3000"))
 VK_TOKEN = os.getenv("VK_TOKEN", "")
-VK_PEER_ID = os.getenv("VK_PEER_ID", "")
+VK_PEER_IDS = [p.strip() for p in os.getenv("VK_PEER_ID", "").split(",") if p.strip()]
 VK_API_VERSION = os.getenv("VK_API_VERSION", "5.199")
 RU_MONTHS = [
     "января",
@@ -79,31 +79,32 @@ def send_vk_message(message):
     if not VK_TOKEN:
         raise RuntimeError("VK token is required")
 
-    if not VK_PEER_ID:
+    if not VK_PEER_IDS:
         raise RuntimeError("VK peer id is required")
 
-    body = urllib.parse.urlencode(
-        {
-            "access_token": VK_TOKEN,
-            "peer_id": VK_PEER_ID,
-            "random_id": f"{int(time.time() * 1000)}{random.randint(1000, 99999)}",
-            "message": message,
-            "v": VK_API_VERSION,
-        }
-    ).encode("utf-8")
+    for peer_id in VK_PEER_IDS:
+        body = urllib.parse.urlencode(
+            {
+                "access_token": VK_TOKEN,
+                "peer_id": peer_id,
+                "random_id": f"{int(time.time() * 1000)}{random.randint(1000, 99999)}",
+                "message": message,
+                "v": VK_API_VERSION,
+            }
+        ).encode("utf-8")
 
-    request = urllib.request.Request(
-        "https://api.vk.com/method/messages.send",
-        data=body,
-        headers={"Content-Type": "application/x-www-form-urlencoded; charset=utf-8"},
-        method="POST",
-    )
+        request = urllib.request.Request(
+            "https://api.vk.com/method/messages.send",
+            data=body,
+            headers={"Content-Type": "application/x-www-form-urlencoded; charset=utf-8"},
+            method="POST",
+        )
 
-    with urllib.request.urlopen(request, timeout=20) as response:
-        payload = json.loads(response.read().decode("utf-8"))
+        with urllib.request.urlopen(request, timeout=20) as response:
+            payload = json.loads(response.read().decode("utf-8"))
 
-    if "error" in payload:
-        raise RuntimeError(payload["error"].get("error_msg", "VK delivery failed"))
+        if "error" in payload:
+            raise RuntimeError(payload["error"].get("error_msg", "VK delivery failed"))
 
     return payload.get("response")
 
