@@ -955,6 +955,43 @@
   }
   .step-content p { font-size: 15px; color: #555; line-height: 1.7; }
 
+  /* ─── TRAINING SHOWCASE ─── */
+  .training-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 960px;
+    margin: 0 auto;
+    align-items: stretch;
+  }
+  .training-photo-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+  }
+  .training-video-block {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .training-video-block video {
+    width: 100%;
+    border-radius: 20px;
+    display: block;
+    flex: 1;
+    object-fit: cover;
+  }
+  .training-caption {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.5;
+    text-align: center;
+  }
+
   /* ─── EQUIPMENT ─── */
   .equipment-bg { background: #fff; }
   .equipment-tabs {
@@ -1607,6 +1644,12 @@
     .step-card.reverse {
       grid-template-columns: 1fr;
     }
+    .training-showcase {
+      grid-template-columns: 1fr;
+    }
+    .training-photo-block img {
+      max-height: 340px;
+    }
     .step-card.reverse .step-img,
     .step-card.reverse .step-content {
       order: initial;
@@ -2156,6 +2199,21 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- TRAINING SHOWCASE -->
+<section>
+  <div class="training-showcase">
+    <div class="training-photo-block">
+      <img src="src/13.jpg" alt="Индивидуальная тренировка в Тонус-Клубе">
+    </div>
+    <div class="training-video-block">
+      <video autoplay muted loop playsinline>
+        <source src="src/training.mp4" type="video/mp4">
+      </video>
+      <p class="training-caption">Индивидуальный подбор физической нагрузки под любой возраст и подготовленность</p>
+    </div>
   </div>
 </section>
 
